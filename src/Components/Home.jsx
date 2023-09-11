@@ -7,26 +7,33 @@ const Home = () => {
   const [weight, setWeight] = useState(0);
 
   const [familyHistory, setFamilyHistory] = useState([]);
-  const [activityLevel, setActivityLevel] = useState(false);
-  const [diabetes, setdiabetes] = useState(false);
-  const [pregnancy, setPregnancy] = useState(false);
+  const [activityLevel, setActivityLevel] = useState("");
+  const [diabetesIndicator, setDiabetesIndicator] = useState("");
 
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
 
-    // If the checkbox is checked, add it to the array
     if (event.target.checked) {
       setFamilyHistory([...familyHistory, value]);
     } else {
-      // If the checkbox is unchecked, remove it from the array
       setFamilyHistory(familyHistory.filter((item) => item !== value));
     }
+  };
+
+  const handleActivityLevelChange = (event) => {
+    setActivityLevel(event.target.value);
+  };
+
+  const handlediabetesIndicator = (event) => {
+    setDiabetesIndicator(event.target.value);
   };
 
   console.log(gender);
   console.log(height);
   console.log(weight);
   console.log(familyHistory);
+  console.log(activityLevel);
+  console.log(diabetesIndicator);
 
   return (
     <div className="home">
@@ -117,11 +124,78 @@ const Home = () => {
 
         <div className="sub-form activity-level">
           <p>Activity Level</p>
+          <div className="action-area-right">
+            <div className="radio">
+              <label className="custom-radio-label">
+                <input
+                  type="radio"
+                  name="activityLevel"
+                  className="custom-radio"
+                  value="Not Active"
+                  onChange={handleActivityLevelChange}
+                  checked={activityLevel === "Not Active"}
+                />
+                Not Active
+              </label>
+
+              <label className="custom-radio-label">
+                <input
+                  type="radio"
+                  name="activityLevel"
+                  className="custom-radio"
+                  value="Active"
+                  onChange={handleActivityLevelChange}
+                  checked={activityLevel === "Active"}
+                />
+                Active
+              </label>
+            </div>
+          </div>
         </div>
         <div className="sub-form daibetes">
           <p>Daibetes</p>
+          <div className="action-area-right">
+            <div className="radio">
+              <label className="custom-radio-label">
+                <input
+                  type="radio"
+                  name="activityLevel"
+                  className="custom-radio"
+                  value="Pre-diabetes"
+                  onChange={handlediabetesIndicator}
+                  checked={activityLevel === "Pre-diabetes"}
+                />
+                Pre-diabetes
+              </label>
+
+              <label className="custom-radio-label">
+                <input
+                  type="radio"
+                  name="activityLevel"
+                  className="custom-radio"
+                  value="Type-2"
+                  onChange={handlediabetesIndicator}
+                  checked={activityLevel === "Type-2"}
+                />
+                Type-2
+              </label>
+
+              <label className="custom-radio-label">
+                <input
+                  type="radio"
+                  name="activityLevel"
+                  className="custom-radio"
+                  value="Neither"
+                  onChange={handlediabetesIndicator}
+                  checked={activityLevel === "Neither"}
+                />
+                Neither
+              </label>
+            </div>
+          </div>
         </div>
       </div>
+      <button className="submit-btn">Complete</button>
     </div>
   );
 };

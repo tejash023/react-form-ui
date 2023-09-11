@@ -4,14 +4,11 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
-  margin: auto 3%;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 5px 2%;
 }
 
 .logo {
@@ -26,6 +23,7 @@ body {
 
 .logo h1 {
   color: #cb333b;
+  margin: 0;
 }
 
 .user p {
@@ -43,6 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .home h3 {
@@ -112,6 +111,12 @@ body {
   border: 2px solid #007bff;
 }
 
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .custom-checkbox {
   appearance: none;
   width: 30px;
@@ -132,5 +137,53 @@ body {
 }
 
 .custom-checkbox:hover {
-  cursor: pointer; /* Change cursor to pointer on hover */
+  cursor: pointer;
+  border-color: #0056b3;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.custom-radio {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* Style the radio buttons when checked */
+.custom-radio:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.custom-radio:checked + .custom-radio-label {
+  color: #007bff;
+}
+
+.custom-radio:hover {
+  border-color: #0056b3;
+  cursor: pointer;
+}
+
+.submit-btn {
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  background-color: rgb(65, 172, 16);
+  color: white;
+  font-size: 1rem;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: rgb(46, 121, 11);
+  cursor: pointer;
 }
