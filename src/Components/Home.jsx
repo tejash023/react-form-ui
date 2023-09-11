@@ -3,12 +3,12 @@ import { useState } from "react";
 
 const Home = () => {
   const [gender, setGender] = useState("");
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState(0);
   const [familyHistory, setFamilyHistory] = useState([]);
-  const [activityLevel, setActivityLevel] = useState("");
-  const [diabetes, setdiabetes] = useState("");
-  const [pregnancy, setPregnancy] = useState("");
+  const [activityLevel, setActivityLevel] = useState(false);
+  const [diabetes, setdiabetes] = useState(false);
+  const [pregnancy, setPregnancy] = useState(false);
 
   console.log(gender);
   console.log(height);
@@ -25,11 +25,14 @@ const Home = () => {
       <div className="form-content">
         <div className="sub-form gender-form">
           <p>Your Gender</p>
-          <div className="gender">
+          <div className="action-area-right">
             <div className="gender-class" onClick={() => setGender("Male")}>
               <img
                 src="https://static.vecteezy.com/system/resources/previews/009/383/461/original/man-face-clipart-design-illustration-free-png.png"
                 alt="male"
+                style={{
+                  filter: `grayscale(${gender === "Male" ? 0 : 100}%)`,
+                }}
               />
               <p>Male</p>
             </div>
@@ -37,6 +40,9 @@ const Home = () => {
               <img
                 src="https://static.vecteezy.com/system/resources/previews/009/380/330/original/woman-face-expression-clipart-design-illustration-free-png.png"
                 alt="female"
+                style={{
+                  filter: `grayscale(${gender === "Female" ? 0 : 100}%)`,
+                }}
               />
               <p>Female</p>
             </div>
@@ -45,7 +51,7 @@ const Home = () => {
 
         <div className="sub-form height-weight">
           <p> Height and Weight</p>
-          <div className="h-w">
+          <div className="action-area-right">
             <div className="body-details">
               <input
                 type="text"
