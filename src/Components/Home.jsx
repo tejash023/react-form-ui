@@ -5,10 +5,11 @@ const Home = () => {
   const [gender, setGender] = useState("Male");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
-
   const [familyHistory, setFamilyHistory] = useState([]);
   const [activityLevel, setActivityLevel] = useState("");
   const [diabetesIndicator, setDiabetesIndicator] = useState("");
+
+  const [showHealthReport, setShowHealthReport] = useState(false);
 
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
@@ -28,12 +29,31 @@ const Home = () => {
     setDiabetesIndicator(event.target.value);
   };
 
-  console.log(gender);
-  console.log(height);
-  console.log(weight);
-  console.log(familyHistory);
-  console.log(activityLevel);
-  console.log(diabetesIndicator);
+  const areAllValuesSelected = () => {
+    return (
+      gender !== "" &&
+      height > 0 &&
+      weight > 0 &&
+      familyHistory.length > 0 &&
+      activityLevel !== "" &&
+      diabetesIndicator !== ""
+    );
+  };
+
+  const handleShowHealthReport = () => {
+    if (areAllValuesSelected()) {
+      setShowHealthReport(true);
+    } else {
+      alert("Please fill out all the required information.");
+    }
+  };
+
+  // console.log(gender);
+  // console.log(height);
+  // console.log(weight);
+  // console.log(familyHistory);
+  // console.log(activityLevel);
+  // console.log(diabetesIndicator);
 
   return (
     <div className="home">
@@ -152,6 +172,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+
         <div className="sub-form daibetes">
           <p>Daibetes</p>
           <div className="action-area-right">
@@ -159,11 +180,11 @@ const Home = () => {
               <label className="custom-radio-label">
                 <input
                   type="radio"
-                  name="activityLevel"
+                  name="diabetesIndicator"
                   className="custom-radio"
                   value="Pre-diabetes"
                   onChange={handlediabetesIndicator}
-                  checked={activityLevel === "Pre-diabetes"}
+                  checked={diabetesIndicator === "Pre-diabetes"}
                 />
                 Pre-diabetes
               </label>
@@ -171,11 +192,11 @@ const Home = () => {
               <label className="custom-radio-label">
                 <input
                   type="radio"
-                  name="activityLevel"
+                  name="diabetesIndicator"
                   className="custom-radio"
                   value="Type-2"
                   onChange={handlediabetesIndicator}
-                  checked={activityLevel === "Type-2"}
+                  checked={diabetesIndicator === "Type-2"}
                 />
                 Type-2
               </label>
@@ -183,11 +204,11 @@ const Home = () => {
               <label className="custom-radio-label">
                 <input
                   type="radio"
-                  name="activityLevel"
+                  name="diabetesIndicator"
                   className="custom-radio"
                   value="Neither"
                   onChange={handlediabetesIndicator}
-                  checked={activityLevel === "Neither"}
+                  checked={diabetesIndicator === "Neither"}
                 />
                 Neither
               </label>
@@ -195,9 +216,39 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <button className="submit-btn">Complete</button>
+
+      <button
+        type="button"
+        className="submit-btn"
+        onClick={handleShowHealthReport}
+      >
+        Complete
+      </button>
+
+      {showHealthReport && (
+        <div className="health-report">
+          <h3>Health Report</h3>
+          <p>
+            Gender: <span>{gender}</span>
+          </p>
+          <p>
+            Height: <span>{height}</span> Ft.
+          </p>
+          <p>
+            Weight: <span>{weight}</span> lbs
+          </p>
+          <p>
+            Family History: <span>{familyHistory.join(", ")}</span>
+          </p>
+          <p>
+            Activity Level: <span>{activityLevel}</span>
+          </p>
+          <p>
+            Diabetes Indicator: <span>{diabetesIndicator}</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 };
-
 export default Home;
