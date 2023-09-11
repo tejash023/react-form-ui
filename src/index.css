@@ -105,8 +105,32 @@ body {
   border: none;
   outline: none;
   background-color: lightgray;
+  border-radius: 5px;
 }
 
 .body-details input:focus {
-  border: 1px solid blue;
+  border: 2px solid #007bff;
+}
+
+.custom-checkbox {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.custom-checkbox:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.custom-checkbox:checked + .custom-checkbox-label {
+  color: #007bff;
+}
+
+.custom-checkbox:hover {
+  cursor: pointer; /* Change cursor to pointer on hover */
 }

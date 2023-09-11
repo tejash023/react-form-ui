@@ -2,17 +2,31 @@ import React from "react";
 import { useState } from "react";
 
 const Home = () => {
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Male");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
+
   const [familyHistory, setFamilyHistory] = useState([]);
   const [activityLevel, setActivityLevel] = useState(false);
   const [diabetes, setdiabetes] = useState(false);
   const [pregnancy, setPregnancy] = useState(false);
 
+  const handleCheckboxChange = (event) => {
+    const value = event.target.value;
+
+    // If the checkbox is checked, add it to the array
+    if (event.target.checked) {
+      setFamilyHistory([...familyHistory, value]);
+    } else {
+      // If the checkbox is unchecked, remove it from the array
+      setFamilyHistory(familyHistory.filter((item) => item !== value));
+    }
+  };
+
   console.log(gender);
   console.log(height);
   console.log(weight);
+  console.log(familyHistory);
 
   return (
     <div className="home">
@@ -74,7 +88,33 @@ const Home = () => {
 
         <div className="sub-form family-history">
           <p>Family History</p>
+          <div className="action-area-right">
+            <div className="checkbox">
+              <label className="custom-checkbox-label">
+                <input
+                  type="checkbox"
+                  className="custom-checkbox"
+                  value="Parents"
+                  onChange={handleCheckboxChange}
+                  checked={familyHistory.includes("Parents")}
+                />
+                Parents
+              </label>
+
+              <label className="custom-checkbox-label">
+                <input
+                  type="checkbox"
+                  className="custom-checkbox"
+                  value="Siblings"
+                  onChange={handleCheckboxChange}
+                  checked={familyHistory.includes("Siblings")}
+                />
+                Siblings
+              </label>
+            </div>
+          </div>
         </div>
+
         <div className="sub-form activity-level">
           <p>Activity Level</p>
         </div>
