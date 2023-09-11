@@ -36,3 +36,84 @@ body {
   color: blue;
   font-weight: 600;
 }
+
+/* HOME */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home h3 {
+  margin: 0;
+  font-weight: 500;
+}
+.home > p {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: rgb(165, 165, 165);
+}
+
+.form-content {
+  width: 60%;
+}
+
+.sub-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+
+  padding: 5px 15px;
+}
+
+.gender-form {
+  margin-top: 50px;
+}
+
+.gender {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gender-class {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.gender-class img {
+  width: 30px;
+  border: 2px solid #2196f3;
+  border-radius: 50%;
+  padding: 2px;
+  filter: grayscale(1);
+}
+
+.h-w {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.body-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.body-details input {
+  width: 35px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  background-color: lightgray;
+}
+
+.body-details input:focus {
+  border: 1px solid blue;
+}
