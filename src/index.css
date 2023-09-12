@@ -157,7 +157,6 @@ body {
   vertical-align: middle;
 }
 
-/* Style the radio buttons when checked */
 .custom-radio:checked {
   background-color: #007bff;
   border-color: #007bff;
