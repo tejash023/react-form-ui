@@ -48,13 +48,6 @@ const Home = () => {
     }
   };
 
-  // console.log(gender);
-  // console.log(height);
-  // console.log(weight);
-  // console.log(familyHistory);
-  // console.log(activityLevel);
-  // console.log(diabetesIndicator);
-
   return (
     <div className="home">
       <h3>So far so good, Let's talk about your health</h3>
